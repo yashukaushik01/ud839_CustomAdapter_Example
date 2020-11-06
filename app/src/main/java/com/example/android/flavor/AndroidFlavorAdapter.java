@@ -60,6 +60,11 @@ public class AndroidFlavorAdapter extends ArrayAdapter<AndroidFlavor> {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        
+        
+        // Get the {@link AndroidFlavor} object located at this position in the list
+        AndroidFlavor currentAndroidFlavor = getItem(position);
+        
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
         if(listItemView == null) {
@@ -67,8 +72,6 @@ public class AndroidFlavorAdapter extends ArrayAdapter<AndroidFlavor> {
                     R.layout.list_item, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
-        AndroidFlavor currentAndroidFlavor = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.version_name);
